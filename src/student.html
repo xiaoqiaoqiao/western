@@ -1,0 +1,525 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	<link rel="stylesheet" href=""/>
+<script type="text/javascript" src="js/sportFrame.js"></script>
+<script>
+var timer=null;
+window.onload=function(){
+/*轮播器*/
+	var lunBo=document.getElementById('lunBo');
+	var oUlL=lunBo.getElementsByTagName('ul')[0];
+	var aImgL=lunBo.getElementsByTagName('img');
+	var olunBtn=document.getElementById('lunBtn');
+	var aBtnL=olunBtn.getElementsByTagName('input');
+	
+	var count=1;
+	
+	/*轮播器*/	
+	cssStyle(oUlL,'width',cssStyle(aImgL[0],'width')*aImgL.length);
+	for(var i=0;i<aBtnL.length;i++){
+		aBtnL[i].index=i;
+		aBtnL[i].onclick=function(){
+			clearCss(aBtnL);
+			aBtnL[this.index].className='active';
+			sport(oUlL,{left:-(this.index)*cssStyle(aImgL[0],'width')});
+			count=this.index;//	
+		};
+			
+	}
+	
+	timer=setInterval(function(){
+		if(count<aImgL.length){
+			sport(oUlL,{left:-count*cssStyle(aImgL[0],'width')});
+			clearCss(aBtnL);
+			aBtnL[count].className='active';
+			count++;
+		}else{
+			count=1;	
+		}	
+		
+	},3000);		
+	/*课程切换*/
+	var oCou=document.getElementById('course');
+	var oUlC=oCou.getElementsByTagName('ul')[0];
+	var aImgC=oUlC.getElementsByTagName('img');
+	
+	for(var i=0;i<aImgC.length;i++){
+		aImgC[i].index=i;
+		aImgC[i].onmouseover=function(){
+			aImgC[this.index].src='img/h-'+(this.index+1)+'-over.png';
+		};	
+		aImgC[i].onmouseout=function(){
+			aImgC[this.index].src='img/h-'+(this.index+1)+'.png';
+		};	
+	}
+	/*选项卡*/
+	var oBtn=document.getElementById('cardBtn');
+	var aBtn=oBtn.getElementsByTagName('div');
+	var oDiv=document.getElementById('cardC');
+	var aDiv=oDiv.getElementsByTagName('div');
+	
+	
+	
+	for( var i=0;i<aBtn.length;i++){
+		aBtn[i].index=i;
+		aBtn[i].onmouseover=function(){
+			
+			for(var i=0;i<aBtn.length;i++){
+				aBtn[i].style.background='#ccc';
+				aDiv[i].style.display='none';
+				aBtn[i].style.color='#666';	
+			}	
+			this.style.background='#9C0'
+			this.style.color='#000';
+			aDiv[this.index].style.display='block';
+		};	
+	}
+	var oFix=document.getElementById('fixed');
+	
+	
+
+};
+//清除样式
+function clearCss(obj){
+	for(var i=0;i<obj.length;i++){
+				obj[i].className='';	
+	}
+}
+</script>
+<style>
+*{ margin:0px;
+	padding:0px;
+	border:0px;}
+body{ font-family:"宋体";
+		font-size:14px;
+		 background-image:url(images/bg_m.PNG);}
+ul{ list-style:none;}
+ul li{ float:left;}
+a{ text-decoration:none;}
+input{ border:1px solid #000;}
+
+h1{ color:#9C0;
+	margin-top:40px;}
+h2{ font-weight:500;
+	margin-top:7px;}
+h4{ color:#999;
+	font-weight:400;
+	margin-top:7px;}
+/*头部Top*/
+#top{ width:1166px;
+	  height:167px;
+	  position:relative;
+	  margin:auto;
+	  margin-top:0px;}
+	  #call{ height:30px;
+	  		 background-image:url(images/top.png);
+			 margin-top:0px;}
+			 #call img{ float:left;
+			 			margin-top:5px;}
+			 #call p{ float:left;
+			 			color:#999;
+						line-height:30px;}
+	  #logo{ height:100px;
+	  		 }
+			 #logo img{ float:left;
+			 			margin-left:150px;
+						margin-top:10px;}
+			 #logo span{ float:left;
+			 			  font-size:24px;
+						  color:#CCC;
+						  margin:40px 100px 0px 20px;}
+	  #Tmenu{ height:36px;
+	  		  background:#9C0;
+			  }
+
+			#Tmenu ul li{ font-weight:400;
+						  padding:10px 15px 10px 15px;
+						  border-radius:7px;}
+			/*链接*/
+			#Tmenu li:hover{ background:#990;/*此处为冒号*/
+							 color:#FFF;}
+
+			#Tmenu li a:link{ color:#FFF;}
+			#Tmenu li a:hover{ color:#FFF;}
+			#Tmenu li a:visited{ color:#FFF;}
+			#Tmenu input{ margin:8px 0px 0px 20px;
+						 }
+
+/*内容contex*/
+#content{ width:1166px;
+		  position:relative;
+		  margin:auto;
+		 }
+		 #lunBo{ height:308px;
+		 		 background:#9F0;
+				 position:relative;
+				 overflow:hidden;}
+			   #lunBo ul{ width:1166;
+			   			  height:308;
+						  list-style:none;
+						  position:absolute;
+						  left:0px;
+						  z-index:1;}
+					#lunBo ul li{ float:left;}
+				#lunBo ul img{ width:1166px;
+							height:308px;}
+				#lunBtn{ width:110px;
+						 height:20px;
+						 position:absolute;
+						 z-index:2;
+						 top:268px;
+						 left:508px;
+						 }
+						 #lunBtn input{ width:20px;
+						 				height:20px;
+										background:#CCC;
+										border:0px;
+										border-radius:20px;}
+						#lunBtn .active{ background:#9C0;
+										 transform:scale(1.1);}
+		 #enter{height:22px;
+		 		width:976px;
+		 		background-image:url(images/top.png);
+             
+		 		padding:6px 95px 0px 95px;
+				color:#999;}
+				#enter a{ margin-left:15px;}
+				#enter a:link{ color:#990;}
+				#enter a:visited{ color:#990;}
+
+		/*教育*/
+		 #Tfont{ height:150px;
+		 		 text-align:center;
+				 }
+
+		/*课程*/
+		 #course{ height:224px;
+				  }
+				 #course ul{
+				 			 float:left;}
+				 #course ul li{ margin-left:10px;
+				 				}
+		/*选项卡*/
+		 #card{ height:455px;
+		 		margin-top:40px;
+				}
+			   #cardLeft{ width:472px;
+			   			  height:450px;
+						  float:left;
+						  margin-left:90px;}
+						  #cardBtn div{ width:71px;
+						  			height:25px;
+									background:#CCC;
+									font-size:16px;
+									font-weight:500;
+									color:#666;
+									line-height:35px;
+									border-top-left-radius:10px;
+									border-top-right-radius:10px;
+									padding:5px 20px 10px 20px;
+									float:left;
+									margin-right:10px;}
+									#cardBtn div img{ float:left;
+													  margin-right:5px;}
+						  #cardC div{ clear:both;
+						  		  width:472px;
+						  		  height:410px;
+								  border-radius:0px 10px 10px 10px;
+								  box-shadow:3px 2px 3px 3px #999;
+								  margin-bottom:10px;
+								  display:none;}
+
+			   #cardRight{ width:492px;
+			   			   height:450px;
+						   color:#666;
+						   float:left;
+						   margin-left:20px;
+						   }
+						   #cardRightTop{ width:472px;
+						   				  height:190px;
+										  border-radius:0px 10px 10px 10px;
+								  		  box-shadow:3px 2px 3px 3px #999;
+										  margin-top:40px;}
+						   #cardRightBom{ width:472px;
+						   				  height:190px;
+										  border-radius:0px 10px 10px 10px;
+								  		  box-shadow:3px 2px 3px 3px #999;
+										  margin-top:30px;}
+						 	#cardRight .BtnL{ width:110px;
+										height:25px;
+										background:#9C0;
+										font-size:16px;
+										font-weight:500;
+										line-height:35px;
+										border-top-left-radius:10px;
+										border-top-right-radius:10px;
+										padding:5px 10px 10px 10px;
+										position:absolute;
+										margin-top:-40px;
+										}
+										#cardRight img{ float:left;
+													  margin-right:5px;}
+						   #cardRight .BtnR{ width:50px;
+						   					 height:15px;
+											 background:#ccc;
+											 font-size:12px;
+											 border-top-left-radius:5px;
+											 border-top-right-radius:5px;
+											 padding:5px 10px 5px 10px;
+											 position:absolute;
+											 margin-top:-25px;
+											 margin-left:393px;
+											 }
+		 #Bfont{ height:120px;
+		 		 text-align:center;
+				 }
+		 #person{ height:370px;
+		 		  font-size:12px;
+				  color:#999;
+				  line-height:22px;}
+				  #person ul{
+				  			  float:left;}
+				  #person ul li{ width:188px;
+				  				 height:290px;
+								 margin-left:10px;
+								 border:2px solid #CCC;}
+
+/*底部版权bom*/
+#bom{ height:145px;
+	  width:920px;
+	  padding:50px 123px 50px 123px;
+	  background:#9c0;
+	  position:relative;
+	  top:0px;
+	  margin:auto;}
+	  #Bmenu{ height:36px;
+	  		  width:1166px;
+			  background:#990;
+			  position:absolute;
+			  margin-top:-91px;
+			  margin-left:-123px;}
+			  #Bmenu ul li{ font-weight:400;
+						  padding:10px 15px 10px 15px;
+						  border-radius:7px;}
+			/*链接*/
+			#Bmenu li:hover{ background:#9C6;
+							 color:#FFF;}
+
+			#Bmenu li a:link{ color:#FFF;}
+			#Bmenu li a:hover{ color:#FFF;}
+			#Bmenu li a:visited{ color:#FFF;}
+			#Bmenu input{ margin:8px 0px 0px 20px;
+						 }
+
+	  #copyright{ height:145px;
+	  			}
+				  #copyright .line{ width:1px;
+				  					height:145px;
+									background:#FFF;
+				  					float:left;
+									margin:0px 20px 0px 20px;}
+				  #copyright img{ float:left;
+				  				  }
+				  #copyright .copy{ font-size:12px;
+				  					color:#FFF;
+									margin-top:35px;
+									line-height:25px;
+									float:left;}
+#fixed{ width:225px;
+		height:256px;
+		background:#F03;
+		position:absolute;
+		left:943px;
+		top:350px;}
+		#fixed ul{ float:right;}
+
+		#block{ width:62px;}
+
+			#block li{ height:62px;
+						margin-bottom:2px;}
+			#block img{ width:62px;
+						height:62px;
+						}
+		#none{ width:161px;}
+		#none img{ display:none;}
+
+</style>
+</head>
+
+<body>
+
+<div id="top">
+	<div id="call">
+    	<img src="img/phone.png" style="margin-left:150px;">
+        <p>客服热线：4000-000-000&nbsp;|&nbsp;关注我们</p>
+        <img src="img/weibo.png">
+        <img src="img/weixin.png">
+        <p style="margin-left:100px;">您好！欢迎来到西部开源技术中心&nbsp;|&nbsp;帮助中心</p>
+    </div>
+    <div id="logo">
+    	<img src="img/logo.png" >
+        <span>享受开源&nbsp;体验自由</span>
+        <img src="img/logo-left.png" style="margin-top:20px;">
+    </div>
+    <div id="Tmenu">
+    	<ul>
+        	<li style="margin-left:100px;"><a href="#">首页</a></li>
+            <li><a href="#">关于开源</a></li>
+            <li><a href="#">教育培训</a></li>
+            <li><a href="#">学习视频</a></li>
+            <li><a href="#">就业招聘</a></li>
+            <li><a href="#">考务系统</a></li>
+            <li><a href="#">企业技术支持</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+        <input type="text" size="10"/>
+        <input type="button" value="&nbsp;GO&nbsp;" style="background:#990;"/>
+    </div>
+</div>
+<div id="content">
+	<div id="lunBo">
+    	<ul>
+        	<li><img src="img/0.jpg"></li>
+            <li><img src="img/1.jpg"></li>
+            <li><img src="img/2.jpg"></li>
+            <li><img src="img/3.jpg"></li>
+        </ul>
+        <div id="lunBtn">
+        	<input type="button" class="active"/>
+            <input type="button"/>
+            <input type="button"/>
+            <input type="button"/>
+        </div>
+    </div>
+    <div id="enter">
+    	最新公告：【西部开源技术中心参加2015年西部教育论坛】
+    	<label for="number" style="margin-left:50px;">账号</label>
+        <input type="text" name="number" id="number"/>
+        <label for="pass">密码</label>
+        <input type="password" id="pass"/>
+        <input type="button" value="&nbsp;&nbsp;登&nbsp;录&nbsp;&nbsp;" style="background:#990;">
+        <a href="#"> 快速注册</a>
+    </div>
+    <div id="Tfont">
+    	<h1 class="greenF">Education&nbsp;教育培训</h1>
+        <h2>西部开源技术中心独创五大就业方向课程</h2>
+        <h4>LINUX系统运维工程师/Java&nbsp;EE工程师/C开发工程师/Android工程师/web前段工程师</h4>
+    </div>
+    <div id="course">
+    	<img src="img/main_wrapper_left.png" style="float:left;margin:100px 0px 0px 91px;">
+    	<ul>
+        	<li><img src="img/h-1.png"></li>
+            <li><img src="img/h-2.png"></li>
+            <li><img src="img/h-3.png"></li>
+            <li style="margin-right:10px;"><img src="img/h-4.png"></li>
+        </ul>
+        <img src="img/main_wrapper_right.png" style="float:left;margin-top:100px;">
+    </div>
+    <!--选项卡-->
+    <div id="card">
+    	<div id="cardLeft">
+            <div id="cardBtn">
+                <div style="background:#9C0;color:#000;">
+                	<img src="img/news.png">新闻
+                </div>
+                <div>
+                	<img src="img/notice.png">公告
+                </div>
+                <div>
+                	<img src="img/job.png">招聘
+                </div>
+            </div>
+        	<div id="cardC">
+                <div style="display:block;">1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
+        </div>
+        <div id="cardRight">
+        	<div id="cardRightTop">
+            	<div class="BtnL">
+                	<img src="img/info.png">就业信息
+                </div>
+                <div class="BtnR">
+                	了解更多
+                </div>
+            </div>
+            <div id="cardRightBom">
+            	<div class="BtnL">
+                	<img src="img/comp.png">企业案例
+                </div>
+                <div class="BtnR">
+                	了解更多
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Bfont">
+    	<h1>Student&nbsp;优秀学员</h1>
+        <h2>西部开源技术中心成功为多家优秀企业输送人才</h2>
+        <h4><pre>百度 / 网易 / 腾讯 / 京东 / 阿里巴巴 / 小米 / 华为</pre></h4>
+    </div>
+    <div id="person">
+    	<img src="img/main_wrapper_left.png" style="float:left;margin:133px 10px 0px 54px;">
+    	<ul>
+        	<li>
+            	<img src="img/main_wrapper-1.png">
+            	&nbsp;&nbsp;学员姓名：刘梦<br>
+                &nbsp;&nbsp;就业企业：阿里巴巴中国
+            </li>
+            <li>
+            	<img src="img/main_wrapper-2.png">
+                &nbsp;&nbsp;学员姓名：刘梦<br>
+                &nbsp;&nbsp;就业企业：阿里巴巴中国
+            </li>
+            <li>
+           	 <img src="img/main_wrapper-3.png">
+                &nbsp;&nbsp;学员姓名：刘梦<br>
+                &nbsp;&nbsp;就业企业：阿里巴巴中国
+            </li>
+            <li>
+            	<img src="img/main_wrapper-4.png">
+                &nbsp;&nbsp;学员姓名：刘梦<br>
+                &nbsp;&nbsp;就业企业：阿里巴巴中国
+            </li>
+            <li>
+            	<img src="img/main_wrapper-5.png">
+                &nbsp;&nbsp;学员姓名：刘梦<br>
+                &nbsp;&nbsp;就业企业：阿里巴巴中国
+            </li>
+        </ul>
+         <img src="img/main_wrapper_right.png" style="float:left;margin:133px 0px 0px 20px;">
+    </div>
+</div>
+<div id="bom">
+	<div id="Bmenu">
+    	<ul>
+        	<li style="margin-left:100px;"><a href="#">合作企业</a></li>
+            <li><a href="#">百度中国</a></li>
+            <li><a href="#">搜狐中国</a></li>
+            <li><a href="#">小米国际</a></li>
+            <li><a href="#">阿里巴巴</a></li>
+            <li><a href="#">华为国际</a></li>
+            <li><a href="#">天猫国际</a></li>
+            <li><a href="#">京东商场</a></li>
+            <li style="margin-left:100px;"><a href="#">更多合作企业></a></li>
+        </ul>
+
+    </div>
+    <div id="copyright">
+    	<img src="img/logo-4.png">
+        <div class="line"></div>
+        <span class="copy">关于开源|教育培训|学习视频|企业技术支持<br>
+        地址：西安太白南路181号西部电子社区A座C区506室&nbsp;联系电话：029-86699937&nbsp;邮箱westo@vip.com<br>
+        Copyright©2015西部开源技术中心www.westos.org.All&nbsp;Reseved.陕ICP备11026152号-13</span>
+        <div class="line"></div>
+        <span style="float:left;color:#FFF;">扫<br>码<br>有<br>惊<br>喜</span>
+        <img src="img/code.png" style="margin-left:5px">
+    </div>
+</div>	
+
+</body>
+</html>

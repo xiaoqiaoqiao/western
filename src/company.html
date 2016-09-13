@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>公司入口</title>
+    <!-- 利用bootStroop布局-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript"  src="js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/test.css"/>
+    <script>
+        $(function () {
+//            更换图片
+            $(".changeTu .changeImg").hover(
+                    function () {
+                        $(this).children().eq(0).show();
+                        $(this).children().eq(1).show();
+                    },
+                    function () {
+                        $(this).children().eq(1).hide();
+                    }
+            );
+            //选项卡
+            $(".cardBtn").click(function () {
+                $(".cardBtn").css({"background":"rgb(229,229,227)","color":"rgb(150,150,150)"});
+                $(this).css({"background":"rgb(35,54,94)","color":"white"});
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container Bg">
+        <div class="row Bg03">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 ColGary">
+                <img src="img/top_phone.jpg" alt=""/><span>客服热线：400-000-000&nbsp;|&nbsp;关注我们</span>
+                <img src="img/top_bolg.jpg" alt=""/><img src="img/top_weixin.jpg" alt=""/>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3 ColGary">
+                <span>您好！欢迎来到西部开源技术中心</span>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row brand">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <img src="img/top_brand.jpg" alt=""/>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-3">
+                <img src="img/top_tu.jpg" alt=""/>
+            </div>
+        </div>
+        <!-- 导航-->
+        <div class="row Bg01">
+            <div class="col-md-1"></div>
+            <div class="col-md-8">
+                <ul class="nav nav-pills nav_my fontWeigt ">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">关于开源</a></li>
+                    <li><a href="#">教育培训</a></li>
+                    <li><a href="#">学习视频</a></li>
+                    <li><a href="#">就业培训</a></li>
+                    <li><a href="#">考务系统</a></li>
+                    <li><a href="#">企业技术支持</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <!-- 搜索框-->
+            <div class="col-md-3" style="padding-top: 7px;margin-left: -20px;">
+                <form action="">
+                    <input type="search" placeholder="搜索" class="Border"/>
+                    <input type="submit" value="GO" class="Bg02 Border"/>
+                </form>
+            </div>
+        </div>
+        <!-- 轮播器-->
+        <div class="row">
+           <div class="col-md-12" style="padding: 0;">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="img/0.jpg" alt="..." class="img-responsive">
+                        </div>
+                        <div class="item">
+                            <img src="img/1.jpg" alt="..." class="img-responsive">
+                        </div>
+                        <div class="item">
+                            <img src="img/2.jpg" alt="..." class="img-responsive">
+                        </div>
+                        <div class="item">
+                            <img src="img/3.jpg" alt="..." class="img-responsive">
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-menu-left Position"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-menu-right Position"></span>
+                    </a>
+                </div>
+           </div>
+        </div>
+        <div class="row Bg03" style="padding: 10px 0 10px 0;">
+            <div class="col-md-1"></div>
+            <div class="col-md-5 ColGary" style="padding-top:5px;">
+                <span>最新公告：【西部开源技术中心参加2015年西部教育论坛】</span>
+            </div>
+            <div class="col-md-6" style="margin-left: -15px;">
+                <form action="">
+                    <label for="usename">账号</label>
+                    <input type="text" name="usename" id="usename"/>
+                    <label for="pass">密码</label>
+                    <input type="password" id="pass" name="pass"/>
+                    <input type="submit" value="登录" class="Bg01 Border ColWh"/>
+                    <a href="#" class="ColBlue">&nbsp;&nbsp;快速注册</a>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 Txt">
+                <h1 class="ColBlue">Service&nbsp;Firm服务企业</h1>
+                <h3 class="ColGary">西部开源技术中心针对不同企业需求的五大服务体系</h3>
+                <h5 class="ColGary">技术支持服务/安全支持服务/维护支持服务/企业培训服务/技术文档服务</h5>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <!-- 切换图-->
+        <div class="row changeTu Bg">
+            <div class="col-md-1" style="margin-left: 50px;"><img src="img/bg.jpg" alt=""/></div>
+            <div class="col-md-2 changeImg">
+                <img src="img/h-2-comp.png" alt="" class="disNone positionAbs"/>
+                <img src="img/h-2-over-comp.png" alt="" class="disBlo positionAbs"/>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2 changeImg">
+                <img src="img/h-3-comp.png" alt="" class="disBlo positionAbs"/>
+                <img src="img/h-3-over-comp.png" alt="" class="disNone positionAbs"/>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2 changeImg">
+                <img src="img/h-4-comp.png" alt="" class="disBlo positionAbs"/>
+                <img src="img/h-4-over-comp.png" alt="" class="disNone positionAbs"/>
+            </div>
+        </div>
+        <!-- 选项卡-->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5 card">
+                <div>
+                    <button class="cardBtn carBtn fontWeigt ColWh Bg01"><img src="img/news.png" alt=""/><span>新闻</span></button>
+                    <button class="cardBtn carBtn fontWeigt ColGary"><img src="img/notice.png" alt=""/><span>公告</span></button>
+                    <button class="cardBtn carBtn fontWeigt ColGary"><img src="img/job.png" alt=""/><span>招聘</span></button>
+                </div>
+                <div class="cardDiv carBtn shodw carDiv ColGary disBlo">填入的数据</div>
+            </div>
+            <div class="col-md-5">
+                <button class="carBtn fontWeigt ColWh Bg01"><img src="img/info.png" alt=""/><span>就业信息</span></button>
+                <div class="carBtn shodw carDiv ColGary" style="width: 500px;">
+                    <ul>
+                        <li><span class="ColZi">学员姓名：</span>王佳&nbsp;&nbsp;<span class="ColZi">毕业院校：</span>西安航空学院<br>
+                            <span class="ColZi">岗位：</span>Java开发工程师&nbsp;&nbsp;<span class="ColZi">就业单位：</span>美团有限责任公司
+                        </li>
+                        <li><span class="ColZi">学员姓名：</span>王佳&nbsp;&nbsp;<span class="ColZi">毕业院校：</span>西安航空学院<br>
+                            <span class="ColZi">岗位：</span>Java开发工程师&nbsp;&nbsp;<span class="ColZi">就业单位：</span>美团有限责任公司
+                        </li>
+                        <li><span class="ColZi">学员姓名：</span>王佳&nbsp;&nbsp;<span class="ColZi">毕业院校：</span>西安航空学院<br>
+                            <span class="ColZi">岗位：</span>Java开发工程师&nbsp;&nbsp;<span class="ColZi">就业单位：</span>美团有限责任公司
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 Txt">
+                <h1 class="ColBlue">企业资质</h1>
+                <h3 class="ColGary">完善企业资质是服务质量的最佳保障</h3>
+                <h5 class="ColGary">培训证书/文明企业</h5>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row" style="padding: 20px 0 20px 0;">
+            <div class="col-md-1"></div>
+            <div class="col-md-11 move">
+                    <img src="img/main_wrapper-1-comp.png" alt=""/>
+                    <img src="img/main_wrapper-2-comp.png" alt=""/>
+                    <img src="img/main_wrapper-3-comp.png" alt=""/>
+                    <img src="img/main_wrapper-4-comp.png" alt=""/>
+            </div>
+        </div>
+        <div class="row Bg02">
+            <div class="col-md-1"></div>
+            <div class="col-md-8">
+                <ul class="nav nav-pills nav_myBtm fontWeigt ">
+                    <li><a href="#">合作企业</a></li>
+                    <li><a href="#">百度中国</a></li>
+                    <li><a href="#">搜狐中国</a></li>
+                    <li><a href="#">小米国际</a></li>
+                    <li><a href="#">阿里巴巴</a></li>
+                    <li><a href="#">华为国际</a></li>
+                    <li><a href="#">天猫国际</a></li>
+                    <li><a href="#">京东商城</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2" style="color: white;padding-top: 10px;">
+                <a href="#">更多合作企业></a>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row Bg01" style="padding: 30px 10px 30px 0;">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <img src="img/logo-4.png" alt=""/>
+                <div style="width: 1px;height: 120px;float: right;background: white;"></div>
+            </div>
+            <div class="col-md-7" style="padding-top: 30px;">
+                <span class="ColWh rowHg">关于开源&nbsp;|&nbsp;教育培训&nbsp;|&nbsp;学习视频&nbsp;|&nbsp;企业技术支持<br>
+        地址：西安太白南路181号西部电子社区A座C区506室&nbsp;联系电话：029-86699937&nbsp;邮箱westo@vip.com<br>
+        Copyright©2015西部开源技术中心www.westos.org.All&nbsp;Reseved.陕ICP备11026152号-13</span>
+            </div>
+            <div class="col-md-2">
+                <img src="img/code.png" alt=""/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
